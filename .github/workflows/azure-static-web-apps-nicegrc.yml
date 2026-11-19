@@ -1,0 +1,55 @@
+# Deploys the static site to Azure Static Web Apps.
+#
+# Pure HTML/CSS/SVG repo — no build step, no package.json.
+# The two settings that matter:
+#   app_location: "/"      -> folder containing index.html, relative to repo root
+#   skip_app_build: true   -> skip Oryx entirely and upload app_location verbatim
+# Without skip_app_build (and with output_location set), Oryx hunts for a
+# toolchain and a build-output folder that will never exist.
+#
+# NOTE: keep the secret name below identical to the one already configured in
+# your repo (Settings -> Secrets -> Actions). Azure names it per-project, e.g.
+# AZURE_STATIC_WEB_APPS_API_TOKEN_<RANDOM_WORDS>.
+
+name: Azure Static Web Apps CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches: [main]
+
+jobs:
+  build_and_deploy_job:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+          lfs: false
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "upload"
+          app_location: "/"
+          api_location: ""
+          output_location: ""
+          skip_app_build: true
+
+  close_pull_request_job:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    name: Close Pull Request Job
+    steps:
+      - name: Close Pull Request
+        id: closepullrequest
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          action: "close"

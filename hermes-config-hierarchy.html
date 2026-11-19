@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hermes Configuration Hierarchy | William Wade</title>
+<style>
+  body {
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem;
+    max-width: 720px;
+    background: #e9ded4;
+    color: #12126d;
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  h1 { font-size: 1.6rem; margin: 0 0 0.35rem; }
+  .standfirst { margin: 0 0 2rem; opacity: 0.75; font-size: 0.95rem; }
+  figure { margin: 0 0 1.5rem; }
+  figure img { display: block; width: 100%; height: auto; }
+  figcaption { margin-top: 0.75rem; font-size: 0.85rem; opacity: 0.7; }
+  .panel {
+    background: #ffffff;
+    padding: 1.5rem 1.25rem;
+    border: 1px solid rgba(18, 18, 109, 0.15);
+  }
+  .swap { margin-top: 2.5rem; font-size: 0.9rem; }
+  .swap strong { font-weight: 700; }
+  pre {
+    background: rgba(18, 18, 109, 0.05);
+    padding: 0.75rem 1rem;
+    overflow-x: auto;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+</style>
+</head>
+
+<body>
+<main>
+  <h1>Hermes Configuration Hierarchy</h1>
+  <p class="standfirst">How <code>config.yaml</code> organizes MCP servers, tools, and the custom skill layer.</p>
+
+  <figure class="panel">
+    <img src="hermes-config-hierarchy.svg" alt="Hierarchy diagram: config.yaml branches into MCP Servers, Tools/Toolsets, and Skills; tools invoke skills at runtime; approvals and hooks govern every call.">
+  </figure>
+  <figcaption>Figure 1 — every key named in the diagram exists in the working <code>~/.hermes/config.yaml</code>.</figcaption>
+
+  <div class="swap">
+    <p><strong>Two ways to place this on a page.</strong> Either embed the drawing as a file:</p>
+    <pre>&lt;img src="hermes-config-hierarchy.svg"
+     alt="Hierarchy diagram: config.yaml branches into MCP Servers,
+          Tools/Toolsets, and Skills; approvals and hooks govern
+          every call."&gt;</pre>
+    <p>Or paste the SVG's contents directly into the page markup, wrapped so it scales with the column:</p>
+    <pre>&lt;figure&gt;
+  &lt;svg viewBox="0 0 680 480" style="width:100%;height:auto"&gt;
+    …contents of hermes-config-hierarchy.svg…
+  &lt;/svg&gt;
+&lt;/figure&gt;</pre>
+  </div>
+</main>
+</body>
+</html>

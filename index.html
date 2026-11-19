@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>William Wade | Nice.grc</title>
+<style>
+  :root {
+    --ink: #12126d;
+    --paper: #e9ded4;
+    --link: #044c9f;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem;
+    max-width: 640px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  h1, h2 { line-height: 1.25; }
+  h1 { font-size: 1.75rem; margin: 0 0 1rem; }
+  h2 { font-size: 1.15rem; margin: 2rem 0 0.5rem; }
+  p { margin: 0 0 1.1rem; }
+  ul { margin: 0 0 1.1rem; padding-left: 1.25rem; }
+  li { margin-bottom: 0.5rem; }
+  a { color: var(--link); text-decoration: underline; overflow-wrap: anywhere; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--ink);
+  }
+  nav a { text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  figure { margin: 2rem 0 1.1rem; }
+  figure img { display: block; width: 100%; height: auto; }
+  figcaption { margin-top: 0.6rem; font-size: 0.85rem; opacity: 0.72; }
+  footer {
+    margin-top: 3rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--ink);
+    font-size: 0.9rem;
+  }
+  footer p { margin: 0; }
+</style>
+</head>
+
+<body>
+
+<h1>William-Wade_Nice.grc</h1>
+
+<nav aria-label="Main">
+  <a href="MCP.html">Model Context Protocol (MCP)</a>
+  <a href="#link-two">AI Agents (Nous Hermes)</a>
+  <a href="#link-three">Operations (Ops)</a>
+</nav>
+
+<main>
+  <p>This is a site meant to share configurations, tools, and setups that modernize workflows
+  that fall under the "Governance, Risk, and Compliance" umbrella. In times of yore
+  (pre-large language model), this was a heavily manual discipline.</p>
+
+  <p>With the maturity of ai-agents and Model Context Protocol (MCP) tools, much of the manual
+  work can be automated. My objective is to share tooling that will amplify one's output while
+  considering security risks associated with these integrations.</p>
+
+  <figure>
+    <img src="hermes-config-hierarchy.svg" alt="Hierarchy diagram: config.yaml branches into
+      MCP Servers, Tools/Toolsets, and Skills; tools invoke skills at runtime; approvals and
+      hooks govern every tool call.">
+    <figcaption>How the agent's configuration is organised &mdash; MCP servers and toolsets
+    supply the capability, the skill layer supplies the procedure, and every call passes
+    through governance.</figcaption>
+  </figure>
+
+  <p>Lastly, I'm aware I could have vibe-coded a fancier site, but this is my humble protest
+  against information overload and copy/paste web aesthetics.</p>
+</main>
+
+<footer>
+    <div style="display: flex; justify-content: space-between;">
+      <p style="margin: 0;">William Wade &middot; Nice.grc</p>
+      <p style="margin: 0;">!DH&lt;3</p>
+    </div>
+
+</footer>
+
+</body>
+</html>
