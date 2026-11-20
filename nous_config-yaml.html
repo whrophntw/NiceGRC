@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nous Hermes Config.yaml</title>
+<style>
+  :root {
+    --ink: #12126d;
+    --paper: #e9ded4;
+    --link: #044c9f;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem;
+    max-width: 800px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  h1, h2 { line-height: 1.25; }
+  h1 { font-size: 1.75rem; margin: 0 0 1rem; }
+  h2 { font-size: 1.15rem; margin: 2rem 0 0.5rem; }
+  p { margin: 0 0 1.1rem; }
+  ul { margin: 0 0 1.1rem; padding-left: 1.25rem;
+    gap: 20px;}
+  li { margin-bottom: 0.5rem; }
+  img {max-width: 100%; height: auto; display: block;}
+  a { color: var(--link); text-decoration: underline; overflow-wrap: anywhere; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--ink);
+  }
+  nav a { text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  footer {
+    margin-top: 3rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--ink);
+    font-size: 0.9rem;
+  }
+
+  .link-list {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .link-list a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .link-list a:hover {
+    text-decoration: underline; /* underline on hover only */
+  }
+
+  /* single "|" between each link, but not after the last one */
+  .link-list a + a::before {
+    content: "|";
+    color: #888;
+    margin-right: 0.5rem;
+  }
+</style>
+</head>
+
+<body>
+
+<nav aria-label="Main">
+  <a href="index.html">Home</a>
+  <a href="MCP.html">Tools Skills & MCP</a>
+  <a href="#link-three">Security</a>
+</nav>
+
+<ul>
+<h1>Nous Hermes Architecture > soul.md > config.yaml</h1>
+
+<img src="images/hermesArch.svg" alt="diagram of nous-hermes agent execution dependencies" loading="lazy"><br><br>
+
+<p>You'll notice that 'skills' is a subset of the platform tools. One of the primary marketing slogans for Nous Hermes is
+      "The Agent That Grows With You." That is accomplished through a combination of tools and skillsets.</p>
+
+<p>While a Tool will typically leverage python or other coding language to handle low level device functions, Skills get written
+      on the fly by Hermes as a markdown or yaml file that prompts it through complex tasks it doesn't know how to do. It later queries these skill files (written in markdown) to
+        essentially prompt it through how to execute specific tasks. Hence, "The agent that grows with you."</p>
+
+<img src="images/config_yaml_Tools.webp" alt="screenshot of nous hermes agent config.yaml file" loading="lazy"><br>
+
+
+
+
+<img src="images/config_yaml_mcp.webp" alt="screenshot of nous hermes agent config.yaml file MCP" loading="lazy"><br>
+
+
+
+  <p>Things of note; <ul>
+
+
+
+      <li><code>Persistent Token Usage: </code> Consider this permanent token consumption. There have been other researchers who have
+          found that soul.md file is entered into a portion of every prompt/query a user submits. That means before you've entered a single
+         prompt, your soul.md is contributing to a certain amount of $ cost. Best not to get carried away with a 150 line ethical manifesto.</li>
+      <li><code>Ethics:</code> Speaking of ethics, I took a course at University on "Information Technology Ethics". In that course we had
+          to write a paper on the ethical dilemma of two scenes from the 2001 Steven Spielberg film "A.i. Artificial Intelligence". In the first
+          scene the mother "imprints" her AI son with an emotional connection. At the 1:19 mark the mother stares into the "son" and speaks what
+          is essentialy a crypto-wallet seedphrase to activate the son's "soul.md" file.<br>
+
+
+
+
+  </li>
+  </ul>
+
+  <link-list class="link-list">
+    <a href="#soul">soulmd</a>
+    <a href="#config">config.yaml</a>
+    <a href="#tools">Tools</a>
+    <a href="#memories">Memories</a>
+    <a href="#skills">Skills</a>
+    <a href="#mcp">MCP</a>
+  </link-list>
+</main>
+
+<footer>
+  <p>WW &middot; Nice.grc</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" width="900" height="380" role="img" aria-labelledby="t d">
+  <title id="fig-title">Nous Hermes configuration hierarchy</title>
+  <desc id="d">root loads ./hermes, then soul.md, then config.yaml, which loads Tools and memories; Tools loads Skills and MCP.</desc>
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 z" fill="#a8641c"/>
+    </marker>
+ </defs>
+
+ <!-- font families and colours are kept separate: CSS classes win over
+       presentation attributes, so colour is applied by class, never both ways -->
+    <style>
+    .lbl { font-family: "Times New Roman", Times, Georgia, serif; }
+    .key { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+    .ink { fill: #12126d; }
+    .amber { fill: #a8641c; }
+    .paper { fill: #e9ded4; }
+    .sub { font-size: 9.5px; }
+    .title { font-size: 13.5px; }
+    .item { font-size: 11.5px; }
+    .cap { font-size: 10px; letter-spacing: 1.8px; }
+    .box { fill: rgba(18,18,109,0.045); stroke: #12126d; stroke-width: 1.25; }
+    .box-skill { fill: rgba(168,100,28,0.065); stroke: #a8641c; stroke-width: 1.25; }
+    .wire { stroke: #12126d; stroke-width: 1.25; fill: none; }
+    .rel { stroke: #a8641c; stroke-width: 1.25; fill: none; stroke-dasharray: 4 3; }
+    </style>
+
+  <!-- page background -->
+  <rect x="0" y="0" width="900" height="380" fill="#f4f4f4"/>
+
+  <!-- root container (pale blue border, white interior) -->
+  <rect x="20" y="95" width="190" height="128" fill="#ffffff" stroke="#d7dff2" stroke-width="1.2"/>
+  <text class="lbl" x="115" y="121" text-anchor="middle" fill="#333333">root</text>
+
+  <!-- entry point inside root -->
+  <rect class="box" x="55" y="130" width="120" height="44"/>
+  <text class="lbl" x="115" y="157" text-anchor="middle">./hermes</text>
+
+  <!-- LEVEL 2 -->
+  <rect class="box" x="265" y="130" width="120" height="44"/>
+  <text class="lbl" x="325" y="157" text-anchor="middle">soul.md</text>
+
+  <!-- LEVEL 3 -->
+  <rect class="box" x="460" y="130" width="120" height="44"/>
+  <text class="lbl" x="520" y="157" text-anchor="middle">config.yaml</text>
+
+  <!-- LEVEL 4: Tools (spine) + memories (branch) -->
+  <rect class="box" x="640" y="130" width="120" height="44"/>
+  <text class="lbl" x="700" y="157" text-anchor="middle">Tools</text>
+
+  <rect class="box" x="640" y="270" width="120" height="44"/>
+  <text class="lbl" x="700" y="297" text-anchor="middle">Memories</text>
+
+  <!-- LEVEL 5: Skills (spine) + MCP (branch) -->
+  <rect class="box" x="800" y="130" width="80" height="44"/>
+  <text class="lbl" x="840" y="157" text-anchor="middle">Skills</text>
+
+  <rect class="box" x="800" y="270" width="80" height="44"/>
+  <text class="lbl" x="840" y="297" text-anchor="middle">MCP</text>
+
+  <!-- spine arrows: straight, left to right -->
+  <path class="wire" d="M175 152 H258" marker-end="url(#arrow)"/>   <!-- hermes -> soul.md -->
+  <path class="wire" d="M385 152 H453" marker-end="url(#arrow)"/>   <!-- soul.md -> config.yaml -->
+  <path class="wire" d="M580 152 H633" marker-end="url(#arrow)"/>   <!-- config.yaml -> Tools -->
+  <path class="wire" d="M760 152 H793" marker-end="url(#arrow)"/>   <!-- Tools -> Skills -->
+
+  <!-- branch arrows: curved, dipping down to the second row -->
+  <path class="wire" d="M520 174 C520 238, 560 292, 633 292" marker-end="url(#arrow)"/>  <!-- config.yaml -> memories -->
+  <path class="wire" d="M740 174 C740 250, 772 292, 793 292" marker-end="url(#arrow)"/>  <!-- Tools -> MCP -->
+</svg>

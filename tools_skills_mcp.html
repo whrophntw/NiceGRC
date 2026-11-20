@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Model Context Protocol | William Wade</title>
+<title>Tools, Skills, and MCP</title>
 <style>
   :root {
     --ink: #12126d;
@@ -56,13 +56,12 @@
 
 <nav aria-label="Main">
   <a href="index.html">Home</a>
-  <a href="MCP.html">Model Context Protocol</a>
-  <a href="#link-two">AI Agents (Nous Hermes)</a>
-  <a href="#link-three">Operations</a>
+  <a href="MCP.html">Agent Architecture</a>
+  <a href="#link-two">Security</a>
 </nav>
 
 <main>
-  <h1>Model Context Protocol (MCP)</h1>
+  <h1>Tools, Skills, & MCP</h1>
 
   <p>I am not a senior software engineer nor do I claim to be one, so I will spare you my
   crass explanation of how <code>MCP</code> functions and point you to the
@@ -73,6 +72,15 @@
   electronics connect together. I liken it to an Application Programmable Interface (API).
   Regardless, the most important takeaway is that it is a standardized protocol written in
   TypeScript. This makes our lives easier in several ways:</p>
+
+  <figure>
+    <img src="hermes-config-hierarchy.svg" alt="Hierarchy diagram: config.yaml branches into
+      MCP Servers, Tools/Toolsets, and Skills; tools invoke skills at runtime; approvals and
+      hooks govern every tool call.">
+    <figcaption>How the agent's configuration is organised &mdash; MCP servers and toolsets
+    supply the capability, the skill layer supplies the procedure, and every call passes
+    through governance.</figcaption>
+  </figure>
 
   <ul>
     <li>We don't have to build a custom tool to connect to cloud infrastructure.</li>

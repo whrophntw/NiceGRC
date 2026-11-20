@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agent Architecture</title>
+<style>
+  :root {
+    --ink: #12126d;
+    --paper: #e9ded4;
+    --link: #044c9f;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem;
+    max-width: 700px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  h1, h2 { line-height: 1.25; }
+  h1 { font-size: 1.75rem; margin: 0 0 1rem; }
+  h2 { font-size: 1.15rem; margin: 2rem 0 0.5rem; }
+  p { margin: 0 0 1.1rem; }
+  ul { margin: 0 0 1.1rem; padding-left: 1.25rem; }
+  li { margin-bottom: 0.5rem; }
+  img {max-width: 100%; height: auto; display: block;}
+  a { color: var(--link); text-decoration: underline; overflow-wrap: anywhere; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--ink);
+  }
+  nav a { text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  footer {
+    margin-top: 3rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--ink);
+    font-size: 0.9rem;
+  }
+  footer p { margin: 0; }
+</style>
+</head>
+
+<body>
+
+<nav aria-label="Main">
+  <a href="index.html">Home</a>
+  <a href="MCP.html">Tools Skills & MCP</a>
+  <a href="#link-three">Security</a>
+</nav>
+
+<main>
+  <h1>AI Agent Architecture</h1>
+
+  <img src="redditscreenshot.webp" alt="reddit screenshot of ai agent usefulness" loading="lazy"><br>
+
+
+
+  <p>In 2022 OpenAI made headlines with their Large-Language Model(LLM) ChatGPT3.5 due to its impressive "Chat" and response capabilities.
+  After 10 to 15 minutes of experimenting, users realized the experience was limited due to it only being able to respond with
+  knowledge (text data) it was trained on.</p>
+
+  <p>Anthropic introduced the Model Context Protocol (MCP) standard in late 2024. This is the protocol standard that expanded the capability of LLMs
+  to their dynamic implementations today. While users ran into outdated information/data issues with ChatGPT3.5. They run into configuration
+  issues with their AI-Agents. Bundled solutions offered by Anthropic, OpenAi, and Google DeepMind makes it seem like magic, but there is
+  A LOT going on under the hood. In the following section I will share some of my own observations, understandings, and challenges.</p>
+
+  <p style="text-align: center;"><a href="hermes_architecture.html">Hermes Agent Architecture</a></p>
+
+
+</main>
+
+<footer>
+  <p>WW &middot; Nice.grc</p>
+</footer>
+
+</body>
+</html>

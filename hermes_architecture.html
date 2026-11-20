@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agent Architecture</title>
+<style>
+  :root {
+    --ink: #12126d;
+    --paper: #e9ded4;
+    --link: #044c9f;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem;
+    max-width: 800px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  h1, h2 { line-height: 1.25; }
+  h1 { font-size: 1.75rem; margin: 0 0 1rem; }
+  h2 { font-size: 1.15rem; margin: 2rem 0 0.5rem; }
+  p { margin: 0 0 1.1rem; }
+  ul { margin: 0 0 1.1rem; padding-left: 1.25rem;
+    gap: 20px;}
+  li { margin-bottom: 0.5rem; }
+  img {max-width: 100%; height: auto; display: block;}
+  a { color: var(--link); text-decoration: underline; overflow-wrap: anywhere; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--ink);
+  }
+  nav a { text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  footer {
+    margin-top: 3rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--ink);
+    font-size: 0.9rem;
+  }
+
+  .link-list {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .link-list a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .link-list a:hover {
+    text-decoration: underline; /* underline on hover only */
+  }
+
+  /* single "|" between each link, but not after the last one */
+  .link-list a + a::before {
+    content: "|";
+    color: #888;
+    margin-right: 0.5rem;
+  }
+</style>
+</head>
+
+<body>
+
+<nav aria-label="Main">
+  <a href="index.html">Home</a>
+  <a href="MCP.html">Tools Skills & MCP</a>
+  <a href="#link-three">Security</a>
+</nav>
+
+<ul>
+  <h1>Nous Hermes Architecture</h1>
+
+  <img src="images/hermesArch.svg" alt="diagram of nous-hermes agent execution dependency" loading="lazy"><br>
+
+
+
+  <p>This is a diagram I created based on my understanding and experience fine-tuning the Nous Research Hermes Agent.</p>
+
+  <p>Coarsely explained; <ul>
+      <li><code>soul.md:</code> The mild to moderately unsettling necessity to imprint a soul, philosophy, and/or persona
+      into the agent that is first referenced prior to any additional data is processed.</li>
+      <li><code>config.yaml:</code> File where the breadth of the Nous Hermes agent's functionality is configured.</li>
+      <li><code>Tools:</code> Are various python programs and low-level code functionality to carry out various tasks by the agent.</li>
+      <li><code>Memories:</code> Statements made in a markdown file of key situational understanding of the agents action and purpose.</li>
+      <li><code>Skills:</code> are yaml/markdown files written by Nous Hermes as it is asked to perform newer complex tasks. It references
+      the skills when key words are triggered so that the LLM does not have to reason through a complex prompt from scratch.</li>
+      <li><code>MCP:</code> The Model Context Protocol servers the LLM can be configured to in order to process external
+          platform information.</li></p></ul>
+
+  </li>
+  </ul>
+
+  <link-list class="link-list">
+    <a href="#soul">soulmd</a>
+    <a href="#config">config.yaml</a>
+    <a href="#tools">Tools</a>
+    <a href="#memories">Memories</a>
+    <a href="#skills">Skills</a>
+    <a href="#mcp">MCP</a>
+  </link-list>
+</main>
+
+<footer>
+  <p>WW &middot; Nice.grc</p>
+</footer>
+
+</body>
+</html>
