@@ -26,7 +26,7 @@
   h2 { font-size: 1.15rem; margin: 2rem 0 0.5rem; }
   p { margin: 0 0 1.1rem; }
   ul { margin: 0 0 1.1rem; padding-left: 1.25rem;
-    gap: 20px;}
+    gap: 60px;}
   li { margin-bottom: 0.5rem; }
   img {max-width: 100%; height: auto; display: block;}
   a { color: var(--link); text-decoration: underline; overflow-wrap: anywhere; }
@@ -92,16 +92,15 @@
 
 
 
-  <p>This is a diagram I created based on my understanding and experience fine-tuning the Nous Research Hermes Agent.</p>
+  <p>This is a diagram I created based on my trial/error fine-tuning the Nous Research Hermes Agent, and sitting
+      through several of Stanford's publically available CS329Z lectures.</p>
 
-  <p>Coarsely explained; <ul>
-      <li><code>soul.md:</code> The mild to moderately unsettling necessity to imprint a soul, philosophy, and/or persona
-      into the agent that is first referenced prior to any additional data is processed.</li>
-      <li><code>config.yaml:</code> File where the breadth of the Nous Hermes agent's functionality is configured.</li>
-      <li><code>Tools:</code> Are various python programs and low-level code functionality to carry out various tasks by the agent.</li>
-      <li><code>Memories:</code> Statements made in a markdown file of key situational understanding of the agents action and purpose.</li>
-      <li><code>Skills:</code> are yaml/markdown files written by Nous Hermes as it is asked to perform newer complex tasks. It references
-      the skills when key words are triggered so that the LLM does not have to reason through a complex prompt from scratch.</li>
+  <p><i>coarsely_explained;</i><ul>
+      <li><code>soul.md:</code> The mild to moderately unsettling realization that you must first embed (imprint) a persona, philosophy, or “soul” into each agent. From a technical perspective, this is the first chunk of data uploaded into the context window of every prompt a user executes.</li><br>
+      <li><code>config.yaml:</code> File where the breadth of the Hermes Agent’s functionality and reasoning is configured.</li><br>
+      <li><code>Tools:</code> Are various python programs and low-level code functionality to carry out various tasks by the agent.</li><br>
+      <li><code>Memories:</code> Not your device’s RAM. This is the agent’s Episodic Memory (system logs), Semantic Memory (knowledge and history), and Procedural Memory (steps to complete tasks/skills).</li><br>
+      <li><code>Skills:</code> Stored files that instruct (prompt) the agent on how to complete any given task.</li><br>
       <li><code>MCP:</code> The Model Context Protocol servers the LLM can be configured to in order to process external
           platform information.</li></p></ul>
 
@@ -109,12 +108,12 @@
   </ul>
 
   <div class="link-list">
-    <a href="soul.html">soulmd</a>
-    <a href="nous_config-yaml.html">config.yaml</a>
-    <a href="hermes_tools">Tools</a>
-    <a href="hermes_memories">Memories</a>
-    <a href="hermes_skills">Skills</a>
-    <a href="hermes_mcp">MCP</a>
+    <a href="soul.html">Soul.md</a>
+    <a href="nous_config-yaml.html">Config.yaml</a>
+    <a href="hermes_tools.html">Tools</a>
+    <a href="hermes_memories.html">Memories</a>
+    <a href="hermes_skills.html">Skills</a>
+    <a href="hermes_mcp.html">Mcp</a>
   </div>
   </link>
 </main>
