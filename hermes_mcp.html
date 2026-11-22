@@ -77,7 +77,7 @@
 </style>
 </head>
 
-<body>
+<center>
 
 <nav aria-label="Main">
   <a href="index.html">Home</a>
@@ -86,17 +86,19 @@
 </nav>
 
 
-<h1>Nous Hermes Architecture > soul.md > config.yaml > <u>Skills</u></h1>
+<h1>Nous Hermes Architecture > soul.md > config.yaml > <u>MCP</u></h1>
 
 <img src="images/hermesArch.svg" alt="diagram of nous-hermes agent execution dependencies"><br><br>
 
-<p>There is a skills directory in the ".hermes/" root folder, and the ".hermes/hermes-agent/" directory. While tools are made of
-    python code, <b>Skills</b> are well structured prompts as a markdown file.</p>
+<center></center><p>It took me more reading than I'd care to admit to grasp the difference between an API and MCP server.
+    They both act as programmable gateways to a platform's internal data. However an API is communicating with an
+    application with json. MCP is communicating with an LLM. The MCP server is formatted in a way to tell the model
+    (similar to how a Skill file might instruct an LLM on how to perform a task) what it can access and how. The servers are usually written
+    in python.</p></center><br>
 
-    <img src="images/image-skills-directory.webp" alt="screensot of powerpoint skill"><br>
+    <img src="images/mcp_comment.png" alt="screensot of mcp_tools.py"><br>
 
-<p>Again, agent capabilities are determined by your LLM's reasoning abilities. The python <b>Tools</b> configured. The tasks and <b>Skills</b>
-    that support the user's prompt. The <b>MCP</b> servers configured to provide interaction between external platforms.</p><br><br>
+<br><br>
 
 
   <div class="link-list">

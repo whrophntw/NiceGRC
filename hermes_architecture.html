@@ -55,8 +55,11 @@
 
   .link-list {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 1.25rem;
+    text-align: center;
+    margin-bottom: 1.1rem;
   }
 
   .link-list a {
@@ -65,10 +68,10 @@
   }
 
   .link-list a:hover {
-    text-decoration: underline; /* underline on hover only */
+    text-decoration: underline;
   }
 
-  /* single "|" between each link, but not after the last one */
+
   .link-list a + a::before {
     content: "|";
     color: #888;
@@ -88,21 +91,21 @@
 <ul>
   <h1>Nous Hermes Architecture</h1>
 
-  <img src="images/hermesArch.svg" alt="diagram of nous-hermes agent execution dependency" loading="lazy"><br>
+  <img src="images/hermesArch.svg" alt="diagram of nous-hermes agent execution dependency"><br>
 
 
 
   <p>This is a diagram I created based on my trial/error fine-tuning the Nous Research Hermes Agent, and sitting
       through several of Stanford's publically available CS329Z lectures.</p>
 
-  <p><i>coarsely_explained;</i><ul>
-      <li><code>soul.md:</code> The mild to moderately unsettling realization that you must first embed (imprint) a persona, philosophy, or “soul” into each agent. From a technical perspective, this is the first chunk of data uploaded into the context window of every prompt a user executes.</li><br>
-      <li><code>config.yaml:</code> File where the breadth of the Hermes Agent’s functionality and reasoning is configured.</li><br>
-      <li><code>Tools:</code> Are various python programs and low-level code functionality to carry out various tasks by the agent.</li><br>
-      <li><code>Memories:</code> Not your device’s RAM. This is the agent’s Episodic Memory (system logs), Semantic Memory (knowledge and history), and Procedural Memory (steps to complete tasks/skills).</li><br>
-      <li><code>Skills:</code> Stored files that instruct (prompt) the agent on how to complete any given task.</li><br>
-      <li><code>MCP:</code> The Model Context Protocol servers the LLM can be configured to in order to process external
-          platform information.</li></p></ul>
+  <p><i>def roughly_explain( ):</i><ul>
+      <code>soul.md =</code> The mild to moderately unsettling realization that you must first embed (imprint) a persona, philosophy, or “soul” into each agent. From a technical perspective, this is the first chunk of data uploaded into the context window of every prompt a user executes.<br><br>
+      <code>config.yaml =</code> File where the breadth of the Hermes Agent’s functionality and reasoning is configured.<br><br>
+      <code>Tools =</code> Are various python programs and low-level code functionality to carry out various tasks by the agent.<br><br>
+      <code>Memories =</code> Not your device’s RAM. This is the agent’s Episodic Memory (system logs), Semantic Memory (knowledge and history), and Procedural Memory (steps to complete tasks/skills).<br><br>
+      <code>Skills =</code> Stored files that instruct (prompt) the agent on how to complete any given task.<br><br>
+      <code>MCP =</code> The Model Context Protocol servers the LLM can be configured to in order to process external
+          platform information.</p></ul>
 
   </li>
   </ul>

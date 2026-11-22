@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security</title>
+<style>
+  :root {
+    --ink: #12126d;
+    --paper: #e9ded4;
+    --link: #044c9f;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem;
+    max-width: 800px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  h1, h2 { line-height: 1.25; }
+  h1 { font-size: 1.75rem; margin: 0 0 1rem; text-align: center; }
+  h2 { font-size: 1.15rem; margin: 2rem 0 0.5rem; }
+  p { margin: 0 0 1.1rem; }
+  ul { margin: 0 0 1.1rem; padding-left: 1.25rem; gap: 20px; }
+  li { margin-bottom: 0.5rem; }
+  a { color: var(--link); text-decoration: underline; overflow-wrap: anywhere; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+  }
+  pre {
+    background: rgba(18, 18, 109, 0.06);
+    border: 1px solid var(--ink);
+    padding: 0.75rem 1rem;
+    overflow-x: auto;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.85em;
+    line-height: 1.4;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--ink);
+  }
+  nav a { text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  footer {
+    margin-top: 3rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--ink);
+    font-size: 0.9rem;
+  }
+  .link-list { display: flex; justify-content: center; gap: 0.5rem; }
+  .link-list a { text-decoration: none; color: inherit; }
+  .link-list a:hover { text-decoration: underline; }
+  .link-list a + a::before { content: "|"; color: #888; margin-right: 0.5rem; }
+</style>
+</head>
+
+<body>
+
+<nav aria-label="Main">
+  <a href="index.html">Home</a>
+  <a href="grc_ops.html">GRC Operations</a>
+  <a href="security.html">Security</a>
+</nav>
+
+<h1>Security</h1>
+
+<p>If <a href="grc_ops.html">GRC Operations</a> is what the agent <i>does</i>, this page is how we keep the doing
+from becoming a liability. An agent that can read your cloud and draft policy changes is a delightful employee and
+a terrible one at the same time. The controls below are what keeps it from being terrible.</p>
+
+<h2>Read-only by default</h2>
+
+<p>The Azure MCP server runs read-only. It can query the Resource Graph and policy state and hand back evidence,
+but it cannot create, modify, or delete anything. Evidence gathering cannot mutate the environment it is auditing
+&mdash; which matters when the auditor's own tool is the thing under audit.</p>
+
+<h2>The write path is gated</h2>
+
+<p>Actual changes &mdash; a role assignment, a policy assignment &mdash; go through the <code>az</code> CLI, and
+they are <b>proposed before they are applied</b>. The agent drafts the change, states which control it serves, and
+waits. Automation that silently rewrites your IAM is not automation; it is an incident with a nice UI.</p>
+
+<pre>mcp_azure_arm   command=execute_query     # read-only: evidence
+az role assignment create ...             # gated write: needs approval</pre>
+
+<h2>Least privilege, enforced</h2>
+
+<p>The access layer leans on the controls the IAM workflow already documents:</p>
+
+<ul>
+  <li><code>A.5.15</code> &mdash; Entra ID + Azure RBAC least-privilege, joiners/movers/leavers by HR feed.</li>
+  <li><code>A.8.2</code> &mdash; PIM and MFA enforced on write/delete actions. Currently partial; the gap is stated,
+  not papered over.</li>
+</ul>
+
+<h2>The agent's own guardrails</h2>
+
+<p>Hermes ships with a few tripwires worth knowing about. Its file tools refuse to touch sensitive paths &mdash;
+<code>~/.hermes/config.yaml</code> and anything under <code>/private/var/</code> &mdash; by design
+(<code>tools/file_tools.py:_check_sensitive_path</code>). Tool calls can be further gated by hooks and approvals
+wired through the config. None of this makes the agent safe; it makes the failure modes quieter.</p>
+
+<h2>The human-shaped hole</h2>
+
+<p>The weakest link is usually the operator, and the classic blunder is credentials in version control. A home
+directory that doubles as a git repo, with <code>.azure/</code> auth state sitting untracked, is one careless
+<code>git add -A</code> away from shipping secrets. Never stage from <code>$HOME</code>. Scan before you push, and
+treat every repo as if it will be public tomorrow.</p>
+
+<p>The honest summary: the security of an agent workflow is not a feature you toggle on. It is the read/write split,
+the approval gates, the least-privilege posture, and the operator discipline &mdash; all of it, or none of it.</p>
+
+<div class="link-list">
+  <a href="grc_ops.html">GRC Operations</a>
+  <a href="azure_iam.html">Azure IAM</a>
+  <a href="security_questionnaires.html">Security Questionnaires</a>
+</div>
+
+<footer>
+  <div style="display: flex; justify-content: space-between;">
+    <p style="margin: 0;">WW &middot; Nice.grc</p>
+    <p style="margin: 0;">!DH&lt;3</p>
+  </div>
+</footer>
+
+</body>
+</html>

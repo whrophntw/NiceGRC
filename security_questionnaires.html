@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GRC Operations | Security Questionnaires</title>
+<style>
+  :root {
+    --ink: #12126d;
+    --paper: #e9ded4;
+    --link: #044c9f;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem;
+    max-width: 800px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  h1, h2 { line-height: 1.25; }
+  h1 { font-size: 1.75rem; margin: 0 0 1rem; text-align: center; }
+  h2 { font-size: 1.15rem; margin: 2rem 0 0.5rem; }
+  p { margin: 0 0 1.1rem; }
+  ul { margin: 0 0 1.1rem; padding-left: 1.25rem; gap: 20px; }
+  li { margin-bottom: 0.5rem; }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: var(--link); text-decoration: underline; overflow-wrap: anywhere; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+  }
+  pre {
+    background: rgba(18, 18, 109, 0.06);
+    border: 1px solid var(--ink);
+    padding: 0.75rem 1rem;
+    overflow-x: auto;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.85em;
+    line-height: 1.4;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--ink);
+  }
+  nav a { text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  footer {
+    margin-top: 3rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--ink);
+    font-size: 0.9rem;
+  }
+  .link-list { display: flex; justify-content: center; gap: 0.5rem; }
+  .link-list a { text-decoration: none; color: inherit; }
+  .link-list a:hover { text-decoration: underline; }
+  .link-list a + a::before { content: "|"; color: #888; margin-right: 0.5rem; }
+</style>
+</head>
+
+<body>
+
+<nav aria-label="Main">
+  <a href="index.html">Home</a>
+  <a href="grc_ops.html">GRC Operations</a>
+  <a href="security.html">Security</a>
+</nav>
+
+<h1>GRC Operations > <u>Security Questionnaires</u></h1>
+
+<p>Security questionnaires are repetitive by design. A customer asks whether data is encrypted, whether access is
+reviewed, whether backups are tested, whether incidents have a process. The questions change shape; the answers
+usually do not.</p>
+
+<p>This makes them a good candidate for agent automation. Not because the agent is brilliant, but because the job is
+mostly retrieval, matching, citation, and careful formatting. In other words: the kind of work machines should be
+doing before a human gives the final blessing.</p>
+
+<h2>The simple version</h2>
+
+<ul>
+  <li><b>Question comes in.</b> A spreadsheet, portal prompt, email, or audit request asks the same thing in
+  slightly different words.</li>
+  <li><b>Agent maps it.</b> The agent finds the closest approved answer and the ISO 27001 controls behind it.</li>
+  <li><b>Agent gathers proof.</b> It pulls the evidence list: policy names, screenshots, exports, cloud settings,
+  or ticket records.</li>
+  <li><b>Human approves.</b> The answer is reviewed before it goes to a customer. The agent drafts; the human signs.</li>
+</ul>
+
+<h2>Example</h2>
+
+<p>A customer asks:</p>
+
+<pre>Do you encrypt customer data at rest and in transit?</pre>
+
+<p>The agent does not need to invent a beautiful essay. It should find the approved encryption answer, map it to the
+right controls, and return something boring and usable:</p>
+
+<pre>Yes. Customer data is encrypted at rest and in transit.
+At rest: Azure-managed or customer-managed encryption keys.
+In transit: TLS 1.2+.
+Controls: ISO 27001:2022 A.8.24, A.8.10.
+Evidence: Key Vault inventory, storage TLS configuration, encryption standard.</pre>
+
+<p>That is the whole trick. The answer is not magic. It is an approved sentence, attached to controls, attached to
+evidence.</p>
+
+<h2>What the agent needs</h2>
+
+<ul>
+  <li><b>A library of approved answers</b> &mdash; short, reusable responses for common questions.</li>
+  <li><b>A control map</b> &mdash; which ISO 27001, SOC 2, NIST, or internal controls support each answer.</li>
+  <li><b>An evidence map</b> &mdash; where the proof lives: Azure policy, RBAC exports, backup records, incident
+  tickets, access reviews, or screenshots.</li>
+  <li><b>A draft status</b> &mdash; if no approved answer exists, the agent drafts one and marks it for review.</li>
+</ul>
+
+<h2>Why this is useful</h2>
+
+<p>The value is not that the agent "knows compliance." It does not. The value is that it can stop the same answer
+from being rewritten twelve different ways by twelve different people. It can keep the wording consistent, attach
+the correct evidence, and show where the gaps are.</p>
+
+<p>If the control is not assessed, the answer should say that. If the evidence is missing, the answer should say
+that too. A blank is better than a confident lie in a nice suit.</p>
+
+<h2>The practical workflow</h2>
+
+<ul>
+  <li>Build a small answer library from real questionnaires.</li>
+  <li>Tag each answer with controls and evidence.</li>
+  <li>Let the agent match new questions to the library.</li>
+  <li>Let the agent draft unknown answers, but mark them as <code>draft</code>.</li>
+  <li>Have a human approve anything before it leaves the building.</li>
+</ul>
+
+<p>That is a security-questionnaire agent. Not a genius. Not a lawyer. A careful clerk with a filing cabinet, a map,
+and enough discipline to admit when the drawer is empty.</p>
+
+<div class="link-list">
+  <a href="grc_ops.html">GRC Operations</a>
+  <a href="azure_iam.html">Azure IAM</a>
+  <a href="security_questionnaires.html">Security Questionnaires</a>
+</div>
+
+<footer>
+  <div style="display: flex; justify-content: space-between;">
+    <p style="margin: 0;">WW &middot; Nice.grc</p>
+    <p style="margin: 0;">!DH&lt;3</p>
+  </div>
+</footer>
+
+</body>
+</html>

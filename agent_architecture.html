@@ -51,6 +51,24 @@
     border-top: 1px solid var(--ink);
     font-size: 0.9rem;
   }
+ .hermes-link {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+  }
+  .hermes-link:hover { text-decoration: underline; }
+
+  .link-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+    text-align: center;
+    margin-bottom: 1.1rem;
+  }
+  .link-list a { text-decoration: none; }
+  .link-list a:hover { text-decoration: underline; }
+
   footer p { margin: 0; }
 </style>
 </head>
@@ -71,7 +89,7 @@
 
 
 
-  <p>In 2022 OpenAI made headlines with their ChatGPT-3.5 LLM due to its impressive “chat" and response capabilities.
+  <center><p>In 2022 OpenAI made headlines with their ChatGPT-3.5 LLM due to its impressive “chat" and response capabilities.
     After 10 to 15 minutes of experimenting, users realized the experience was limited to the knowledge the
    model was trained on (Parametric Memory), and early-day best practices to "prompt engineer" efficient Chain-of-Thought reasoning.</p>
 
@@ -80,9 +98,9 @@
     they run into configuration (understanding) issues with Ai-Agents.</p>
 
   <p>In the following sections, I will simplify the various components that make up an ai-agent. By the end, you will understand
-    why the initial use of ai-agents is so underwhelming, and how to setup your own agents to perform professional and personal tasks.</p>
+    why the initial use of ai-agents is so underwhelming, and how to setup your own agents to perform professional and personal tasks.</p></center><br>
 
-  <a href="hermes_architecture.html">Hermes Agent Architecture</a></p>
+  <a class="hermes-link" href="hermes_architecture.html">Hermes Agent Architecture</a><br>
   <div class="link-list">
     <a href="soul.html">Soul.md</a>
     <a href="nous_config-yaml.html">Config.yaml</a>

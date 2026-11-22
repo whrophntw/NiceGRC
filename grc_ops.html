@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GRC Operations</title>
+<style>
+  :root {
+    --ink: #12126d;
+    --paper: #e9ded4;
+    --link: #044c9f;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem;
+    max-width: 800px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  h1, h2 { line-height: 1.25; }
+  h1 { font-size: 1.75rem; margin: 0 0 1rem; text-align: center; }
+  h2 { font-size: 1.15rem; margin: 2rem 0 0.5rem; }
+  p { margin: 0 0 1.1rem; }
+  ul { margin: 0 0 1.1rem; padding-left: 1.25rem; gap: 20px; }
+  li { margin-bottom: 0.5rem; }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: var(--link); text-decoration: underline; overflow-wrap: anywhere; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--ink);
+  }
+  nav a { text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  footer {
+    margin-top: 3rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--ink);
+    font-size: 0.9rem;
+  }
+  .link-list { display: flex; justify-content: center; gap: 0.5rem; }
+  .link-list a { text-decoration: none; color: inherit; }
+  .link-list a:hover { text-decoration: underline; }
+  .link-list a + a::before { content: "|"; color: #888; margin-right: 0.5rem; }
+</style>
+</head>
+
+<p>
+
+<nav aria-label="Main">
+  <a href="index.html">Home</a>
+  <a href="grc_ops.html">GRC Operations</a>
+  <a href="security.html">Security</a>
+</nav>
+
+<h1>GRC Operations</h1>
+
+def Governance():<br>
+<p style="text-indent: 40px;"><a href="modern_grc.html"> Modern Governance Thought</a><br></p>
+<p style="text-indent: 40px;"><a href="grc_governance_agent.html">Agent Governance Workflow</a><br></p>
+
+
+
+<p>Policies that were rarely referenced. Procedures engineers may or may not have written.
+    Quarterly committee meetings established to pass external audits more than governing actual business operations.</p>
+
+<p>Today, agents take <b>autonomous action</b> based on Policies (soul.md, config.yaml, semantic memory markdown files) and Procedures (every skill markdown file)</p>
+
+<p>These examples are obviously lower-level (operational) governance. I highlight them, because they sit far away from the C-Suite but require their critical input to provide
+guardrails for modern agent-driven business operations.</p>
+
+<h2>1. Automating Azure IAM</h2>
+
+<p>Least-privilege is easy to say and miserable to prove. This workflow lets the agent enumerate role
+assignments, map them against the ISO control they satisfy, and propose &mdash; not silently make &mdash; the
+changes that tighten them.</p>
+
+<p><a href="azure_iam.html">Read: Azure IAM automation &rarr;</a></p>
+
+<h2>2. Answering security questionnaires</h2>
+
+<p>Vendor and audit questionnaires are the GRC version of water torture: the same hundred questions, asked a
+hundred times, answered from a hundred different memories. This workflow answers them from one control
+catalog, corroborated by live Azure evidence, with a provenance log proving it did not just make the answer up.</p>
+
+<p><a href="security_questionnaires.html">Read: Security questionnaires &rarr;</a></p>
+
+<h2>The underlying principle</h2>
+
+<p>Both workflows rest on a three-layer stack:</p>
+
+<ul>
+  <li><b>Knowledge layer</b> &mdash; the catalog of controls, applicability, and prior answers. The source of
+  truth for <i>what we do and why</i>.</li>
+  <li><b>Evidence layer</b> &mdash; the read-only Azure MCP server. The source of truth for <i>what is actually
+  deployed</i>.</li>
+  <li><b>Orchestration layer</b> &mdash; a Hermes skill that forces the agent to retrieve from the catalog before
+  it ever cites the cloud.</li>
+</ul>
+
+<p>Split these three apart and the agent stops being a confident liar. It can show its work.</p>
+
+<div class="link-list">
+  <a href="azure_iam.html">Azure IAM</a>
+  <a href="security_questionnaires.html">Security Questionnaires</a>
+</div>
+
+<footer>
+  <div style="display: flex; justify-content: space-between;">
+    <p style="margin: 0;">WW &middot; Nice.grc</p>
+    <p style="margin: 0;">!DH&lt;3</p>
+  </div>
+</footer>
+
+</body>
+</html>

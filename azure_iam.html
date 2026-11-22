@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GRC Operations | Azure IAM</title>
+<style>
+  :root {
+    --ink: #12126d;
+    --paper: #e9ded4;
+    --link: #044c9f;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem;
+    max-width: 800px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  h1, h2 { line-height: 1.25; }
+  h1 { font-size: 1.75rem; margin: 0 0 1rem; text-align: center; }
+  h2 { font-size: 1.15rem; margin: 2rem 0 0.5rem; }
+  p { margin: 0 0 1.1rem; }
+  ul { margin: 0 0 1.1rem; padding-left: 1.25rem; gap: 20px; }
+  li { margin-bottom: 0.5rem; }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: var(--link); text-decoration: underline; overflow-wrap: anywhere; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+  }
+  pre {
+    background: rgba(18, 18, 109, 0.06);
+    border: 1px solid var(--ink);
+    padding: 0.75rem 1rem;
+    overflow-x: auto;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.85em;
+    line-height: 1.4;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--ink);
+  }
+  nav a { text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  footer {
+    margin-top: 3rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--ink);
+    font-size: 0.9rem;
+  }
+  .link-list { display: flex; justify-content: center; gap: 0.5rem; }
+  .link-list a { text-decoration: none; color: inherit; }
+  .link-list a:hover { text-decoration: underline; }
+  .link-list a + a::before { content: "|"; color: #888; margin-right: 0.5rem; }
+</style>
+</head>
+
+<body>
+
+<nav aria-label="Main">
+  <a href="index.html">Home</a>
+  <a href="grc_ops.html">GRC Operations</a>
+  <a href="security.html">Security</a>
+</nav>
+
+<h1>GRC Operations > <u>Azure IAM</u></h1>
+
+<p>"IAM" here means the identity and access layer of Microsoft Azure: Entra ID (formerly Azure AD), Azure RBAC
+role assignments, and the PIM/MFA guardrails around privileged access. The compliance problem is not that these
+controls do not exist &mdash; it is that <i>proving</i> them usually means a human clicking through the portal and
+exporting spreadsheets by hand. The agent removes the clicking.</p>
+
+<h2>The split that matters: read vs. write</h2>
+
+<p>Before a single command runs, the workflow draws a hard line. The Azure MCP server is <b>read-only</b> &mdash;
+it queries the Resource Graph and policy state and produces evidence. Actual changes &mdash; creating a role
+assignment, enforcing a policy &mdash; go through the <code>az</code> CLI. Two tools, two different trust levels:</p>
+
+<pre>mcp_azure_arm   command=execute_query     # read-only evidence
+az role assignment create ...             # real, audited change</pre>
+
+<p>This is the guardrail that keeps evidence gathering from mutating the very environment it is auditing.</p>
+
+<h2>Step one: enumerate what already exists</h2>
+
+<p>The agent pulls every role assignment in the subscription with a Resource Graph query:</p>
+
+<pre>AuthorizationResources
+| where type == 'microsoft.authorization/roleassignments'
+| project principalId, roleDefinitionId, scope</pre>
+
+<p>That flat list &mdash; who, what role, at what scope &mdash; is the raw material for a least-privilege review.
+No more screenshots of the portal.</p>
+
+<h2>Step two: map it to a control</h2>
+
+<p>A list of role assignments means nothing to an auditor until it maps to a requirement. Two ISO 27001:2022
+controls cover this ground:</p>
+
+<ul>
+  <li><code>A.5.15 (Access control)</code> &mdash; RBAC + least-privilege, joiners/movers/leavers fed by a HR
+  process. Evidence: the role assignment export, access review records.</li>
+  <li><code>A.8.2 (Privileged access rights)</code> &mdash; PIM and MFA enforced on write/delete actions.
+  Evidence: the "MFA for Resource Write Actions" and "MFA for Resource Delete Actions" policy assignments.</li>
+</ul>
+
+<h2>Step three: tighten, don't surprise</h2>
+
+<p>Writes are proposed first. The agent drafts the <code>az role assignment delete</code> or the PIM elevation
+change, states which control it serves, and asks before it touches anything. Automation that silently rewrites
+your IAM is not automation &mdash; it is an incident with a nice UI.</p>
+
+<h2>Where it stands</h2>
+
+<p>In the current lab, <code>A.5.15</code> is assessed as implemented and <code>A.8.2</code> as partial (PIM rollout
+in progress). The evidence is real; the gaps are stated as gaps. That honesty is the whole point of the workflow.</p>
+
+<div class="link-list">
+  <a href="grc_ops.html">GRC Operations</a>
+  <a href="azure_iam.html">Azure IAM</a>
+  <a href="security_questionnaires.html">Security Questionnaires</a>
+</div>
+
+<footer>
+  <div style="display: flex; justify-content: space-between;">
+    <p style="margin: 0;">WW &middot; Nice.grc</p>
+    <p style="margin: 0;">!DH&lt;3</p>
+  </div>
+</footer>
+
+</body>
+</html>

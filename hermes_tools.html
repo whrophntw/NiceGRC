@@ -77,8 +77,6 @@
 </style>
 </head>
 
-<body>
-
 <nav aria-label="Main">
   <a href="index.html">Home</a>
   <a href="grc_ops.html">GRC Operations</a>
@@ -90,28 +88,30 @@
 
 <img src="images/hermesArch.svg" alt="diagram of nous-hermes agent execution dependencies"><br><br>
 
-<p>In the root <code>.hermes/</code> folder you will find: <b>soul.md</b> file, <b>skills</b> directory, <b>config.yaml</b> file</p><br>
+<center><p>In the root <code>.hermes/</code> folder you will find: <b>soul.md</b> file, <b>skills</b> directory, <b>config.yaml</b> file</p><br>
     <p>You will notice that there is not a directory for Tools. To find them you have to navigate to the <code>.hermes/hermes-agent/</code> directory.
-    This is your proverbial <a href="https://www.youtube.com/watch?v=FBj310q7BxU">Barney Bag</a> of gizmos, gadgets, odds and ends, and even some old strings.</p>
+    This is your proverbial <a href="https://www.youtube.com/watch?v=FBj310q7BxU">Barney Bag</a> of gizmos, gadgets, odds and ends, and even some old strings... literally.</p></center><br><br>
+
 
     <img src="images/image_hermes-agent_directory.webp" alt="screensot of hermes-agent directory"><br>
 
-<p>Finally, if you navigate to <b>.hermes/hermes-agent/tools/</b> directory, you are presented with a sea of agent tools as python scripts.
-<p>By now, someone new to agents but familiar with LLMs should start to understand that agents aren't LLMs with magical capabilities. They
-    are still LLM that work their tasks from <b>prompts.</b> They <b>reason from memory</b>. They execute with <b>tools</b> as python or other code. They
-    learn elaborate processes from <b>skills</b>.</p><br><br>
+<center><p>Finally, if you navigate to <b>.hermes/hermes-agent/tools/</b> directory, you are presented with a sea of agent tools written in python code.</center><br>
 
 <img src="images/image-hermes-tool-directory.webp" alt="screensot of /hermes/hermes-agent/tools Directory"><br>
 
+<center><p>By now, someone new to agents but familiar with LLMs should start to understand that agents aren't LLMs with magical capabilities. Users use agents to
+   prompt LLMs. The LLM <b>reasons from memory</b>. The agent uses the LLM to determine which <b>tool</b> (as python or other code) to use. The agent
+    learns extensive/elaborate processes from <b>skills</b>. Agents access and retrieve external data from SaaS platforms with <b>MCP</b>.</p></center><br>
 
-  <div class="link-list">
-    <a href="soul.html">Soul.md</a>
-    <a href="nous_config-yaml.html">Config.yaml</a>
-    <a href="hermes_tools">Tools</a>
-    <a href="hermes_memories">Memories</a>
-    <a href="hermes_skills">Skills</a>
-    <a href="hermes_mcp">MCP</a>
-  </div>
+
+<div class="link-list">
+  <a href="soul.html">Soul.md</a>
+  <a href="nous_config-yaml.html">Config.yaml</a>
+  <a href="hermes_tools.html">Tools</a>
+  <a href="hermes_memories.html">Memories</a>
+  <a href="hermes_skills.html">Skills</a>
+  <a href="hermes_mcp.html">Mcp</a>
+</div>
 </main>
 
 <footer>
