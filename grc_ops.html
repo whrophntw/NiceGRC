@@ -78,39 +78,9 @@ def Risk():<br>
 
 def Compliance_Tech():<br>
 <p style="text-indent: 40px;"><a href="modern_gov.html"> comply.py</a><br></p>
-<p style="text-indent: 40px;"><a href="grc_governance_agent.html">Human In The Middle</a><br></p>
+<p style="text-indent: 40px;"><a href="grc_governance_agent.html">Human In The Middle</a><br></p><br>
 
 
-<center><h2>1. Automating Azure IAM</h2>
-
-<p>Least-privilege is easy to say and miserable to prove. This workflow lets the agent enumerate role
-assignments, map them against the ISO control they satisfy, and propose &mdash; not silently make &mdash; the
-changes that tighten them.</p>
-
-<p><a href="azure_iam.html">Read: Azure IAM automation &rarr;</a></p>
-
-<h2>2. Answering security questionnaires</h2>
-
-<p>Vendor and audit questionnaires are the GRC version of water torture: the same hundred questions, asked a
-hundred times, answered from a hundred different memories. This workflow answers them from one control
-catalog, corroborated by live Azure evidence, with a provenance log proving it did not just make the answer up.</p>
-
-<p><a href="security_questionnaires.html">Read: Security questionnaires &rarr;</a></p>
-
-<h2>The underlying principle</h2>
-
-<p>Both workflows rest on a three-layer stack:</p>
-
-<ul>
-  <li><b>Knowledge layer</b> &mdash; the catalog of controls, applicability, and prior answers. The source of
-  truth for <i>what we do and why</i>.</li>
-  <li><b>Evidence layer</b> &mdash; the read-only Azure MCP server. The source of truth for <i>what is actually
-  deployed</i>.</li>
-  <li><b>Orchestration layer</b> &mdash; a Hermes skill that forces the agent to retrieve from the catalog before
-  it ever cites the cloud.</li>
-</ul>
-
-<p>Split these three apart and the agent stops being a confident liar. It can show its work.</p></center>
 
 <div class="link-list">
   <a href="azure_iam.html">Azure IAM</a>
