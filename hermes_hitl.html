@@ -89,26 +89,31 @@
 </nav>
 
 <main>
-  <center><h2>comply_dotpie.py</h2><br>
+  <center><h2>Human in the (Way) Loop</h2><br>
 
 
+  <p>In ai testing, deployment, and workflows there is a principal called Human-in-the-Loop. It is meant to supervise or "sanity check" autonomous operations.</p>
+
+  <p>In practice, it can be seen as Human-in-the-Way (of progress). I am not vehemently for or against the principal either way. Like most things in life, moderation is best and often contextual. Yes, businesses need
+      to remain competitive, but fundamental forethought or gut instinct should not be thrown out because of it.</p>
+
+  <p>There are two narratives currently circulating that support HITL unknowingly. The first, "Computer Science degrees are cooked because coding agents do all the junior work".
+      The second, "Interviewers and Software Engineering Managers are asking people to explain what their code does and why they made certain design decisions, just to find out the Engineers don't know".<br><br>
+      <u>Just because you can automate something doesn't mean you always should.</u> If for no other reason, when it is time to strategicaly pivot infrastructure or platform, you understand what the tradeoffs are. I've seen some complaints that platforms under Anthropic or Grok are increasing costs substantially. What did people think was going to happen?</p>
 
 
+<center><u>Human In The Loop should be leveraged as old-fashioned human instinct.</u></center>
 
-  <p>Python program passes user selections to agent LLM <b>-</b> LLM queries cloud's MCP server to extract resource and account information <b>-</b> Agent exports results to .json file <b>-</b> Python program identifies changes to review.</p><br>
+<p>"Gee, I don't know team. There's about 30 LLMs across 4 trusted providers. Should we really build our entire department's operations around
+one model that also develops the tool we depend on?"</p>
 
-      <center><img src="images/arch_diagram.png" style="mix-blend-mode: multiply;" alt="comply_dotpie.py program workflow"></center>
+<p>Even if you "automate the hard way" by building custom python scripts and workflows that empower weaker models. It pays off in the long run by
+    your team actually understanding what's going on under the hood. You get to operate with substantially cheaper models. You're still exercising your brain to think
+    critically about development decisions. You still end up exponentially increasing efficiency in the long term without a substantial amount of technical debt.</p>
 
-  <p>Roughly 60% of a SOC2 audit is logical control (technical) evidence with the other 40% being governance (management) oversight. You will find a similar split across ISO27001 and PCI-DSS controls. This means it is impossible to automate 100% of evidence.
-
-  That said, you will find that much of the control evidence is based on showing that certain controls are turned on, certain access is limited, and proof that they were reviewed in pre-determined increments.</p><br>
-
-<center><u>Why not just remove python and prompt the LLM to return cloud results?</u></center><br>
-<p>We already know that you can ask a model the same question twice and get two different responses. Think of the variation in natural language prompting that would occur on any given day for the same work.</p><br>
-    <li>“fetch azure’s resource groups”</li> <li>“show me what applications I have live right now”</li> <li>“what resources does each of my azure cloud apps have access to”</li> <li>“show me what the engineering team has access to”</li> <li>“who has access to productX cloud app?”.</li> <br></p>
-
-
-  <center>There may very well be scenarios where you want unique customized output, but for an audit, you want repeatable verifiable artifacts. Not to mention, calling the same task with the same prompt reduces reasoning and memory required by your LLM (Less token/$ consumption).<br><br> This applies to all agent workflows as well. The more you can fine tune and simplify the output requirement, skill.md file (instructions to accomplish the task), and the general reasoning required… the more you can rely on cheaper models to do heavy lifting. It's simply reckless to invoke Mythos if your workflow is (take python input, extract cloud resources to a json file, and print report). That’s lighting a candle with a flamethrower.</center><br><br>
+<div class="link-list">
+  <a href="comply_dotpie.html">comply_dotpie.py</a>
+</div>
 
 </main>
 
