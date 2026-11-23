@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agent Architecture</title>
+<style>
+  :root {
+    --ink: #12126d;
+    --paper: #e9ded4;
+    --link: #044c9f;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem;
+    max-width: 800px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  h1, h2 { line-height: 1.25; }
+  h1 { font-size: 1.75rem; margin: 0 0 1rem; text-align: center; }
+  h2 { font-size: 1.15rem; margin: 2rem 0 0.5rem; }
+  p { margin: 0 0 1.1rem; }
+  ul { margin: 0 0 1.1rem; padding-left: 1.25rem;
+    gap: 60px;}
+  li { margin-bottom: 0.5rem; }
+  img {max-width: 100%; height: auto; display: block;}
+  a { color: var(--link); text-decoration: underline; overflow-wrap: anywhere; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--ink);
+  }
+  nav a { text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  footer {
+    margin-top: 3rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--ink);
+    font-size: 0.9rem;
+  }
+
+  .link-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+    text-align: center;
+    margin-bottom: 1.1rem;
+  }
+
+  .link-list a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .link-list a:hover {
+    text-decoration: underline;
+  }
+
+
+  .link-list a + a::before {
+    content: "|";
+    color: #888;
+    margin-right: 0.5rem;
+  }
+</style>
+</head>
+
+<body>
+
+<nav aria-label="Main">
+  <a href="index.html">Home</a>
+  <a href="grc_ops.html">GRC Operations</a>
+  <a href="security.html">Security</a>
+</nav>
+
+<main>
+  <center><h2>comply_dotpie.py</h2><br>
+
+
+
+
+
+  <p>Python program passes user selections to agent LLM <b>-</b> LLM queries cloud's MCP server to extract resource and account information <b>-</b> Agent exports results to .json file <b>-</b> Python program identifies changes to review.</p><br>
+
+      <center><img src="images/arch_diagram.png" style="mix-blend-mode: multiply;" alt="comply_dotpie.py program workflow"></center>
+
+  <p>Roughly 60% of a SOC2 audit is logical control (technical) evidence with the other 40% being governance (management) oversight. You will find a similar split across ISO27001 and PCI-DSS controls. This means it is impossible to automate 100% of evidence.
+
+  That said, you will find that much of the control evidence is based on showing that certain controls are turned on, certain access is limited, and proof that they were reviewed in pre-determined increments.</p><br>
+
+<center><u>Why not just remove python and prompt the LLM to return cloud results?</u></center><br>
+<p>We already know that you can ask a model the same question twice and get two different responses. Think of the variation in natural language prompting that would occur on any given day for the same work.</p><br>
+    <li>“fetch azure’s resource groups”</li> <li>“show me what applications I have live right now”</li> <li>“what resources does each of my azure cloud apps have access to”</li> <li>“show me what the engineering team has access to”</li> <li>“who has access to productX cloud app?”.</li> <br></p>
+
+
+  <center>There may very well be scenarios where you want unique customized output, but for an audit, you want repeatable verifiable artifacts. Not to mention, calling the same task with the same prompt reduces reasoning and memory required by your LLM (Less token/$ consumption).<br><br> This applies to all agent workflows as well. The more you can fine tune and simplify the output requirement, skill.md file (instructions to accomplish the task), and the general reasoning required… the more you can rely on cheaper models to do heavy lifting. It's simply reckless to invoke Mythos if your workflow is (take python input, extract cloud resources to a json file, and print report). That’s lighting a candle with a flamethrower.</center><br><br>
+
+</main>
+
+<footer>
+    <div style="display: flex; justify-content: space-between;">
+      <p style="margin: 0;">WW &middot; Nice.grc</p>
+      <p style="margin: 0;">!DH&lt;3</p>
+    </div>
+</footer>
+
+</body>
+</html>
