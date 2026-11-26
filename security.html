@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Security</title>
+<title>AI Agent Architecture</title>
 <style>
   :root {
     --ink: #12126d;
@@ -14,7 +14,7 @@
   body {
     margin: 0 auto;
     padding: 2.5rem 1.25rem;
-    max-width: 800px;
+    max-width: 900px;
     background: var(--paper);
     color: var(--ink);
     font-family: "Times New Roman", Times, Georgia, serif;
@@ -25,21 +25,14 @@
   h1 { font-size: 1.75rem; margin: 0 0 1rem; text-align: center; }
   h2 { font-size: 1.15rem; margin: 2rem 0 0.5rem; }
   p { margin: 0 0 1.1rem; }
-  ul { margin: 0 0 1.1rem; padding-left: 1.25rem; gap: 20px; }
+  ul { margin: 0 0 1.1rem; padding-left: 1.25rem;
+    gap: 60px;}
   li { margin-bottom: 0.5rem; }
+  img {max-width: 100%; height: auto; display: block;}
   a { color: var(--link); text-decoration: underline; overflow-wrap: anywhere; }
   code {
     font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
     font-size: 0.88em;
-  }
-  pre {
-    background: rgba(18, 18, 109, 0.06);
-    border: 1px solid var(--ink);
-    padding: 0.75rem 1rem;
-    overflow-x: auto;
-    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-    font-size: 0.85em;
-    line-height: 1.4;
   }
   nav {
     display: flex;
@@ -59,13 +52,34 @@
     border-top: 1px solid var(--ink);
     font-size: 0.9rem;
   }
-  .link-list { display: flex; justify-content: center; gap: 0.5rem; }
-  .link-list a { text-decoration: none; color: inherit; }
-  .link-list a:hover { text-decoration: underline; }
-  .link-list a + a::before { content: "|"; color: #888; margin-right: 0.5rem; }
+
+  .link-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+    text-align: center;
+    margin-bottom: 1.1rem;
+  }
+
+  .link-list a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .link-list a:hover {
+    text-decoration: underline;
+  }
+
+
+  .link-list a + a::before {
+    content: "|";
+    color: #888;
+    margin-right: 0.5rem;
+  }
 </style>
 </head>
-
+<main>
 <body>
 
 <nav aria-label="Main">
@@ -74,15 +88,28 @@
   <a href="security.html">Security</a>
 </nav>
 
-<h1>Security</h1>
+<ul>
+  <center><h2>Continuous Integration Continuous Deployment (CI/CD_as_Security)</h2><br>
 
-<center>OWASP considerations coming soon...</center>
+  <p>While the technicality of cyber security continues to expand with agents chaining attack vectors, I believe the foundation from where we reduce tangible risk to businesses remains the same. In the <a href="acceptVdenyN.html">Accept Voodoo Deny Negligence</a> post, I wrote how news cycles went from fear-mongering the advanced hacking capabilities of frontier models to the largest crypto hack in history occurring by way of social engineering.</p>
+
+  <p>The security fundamentals of "Defense in Depth" don't change, but the complexity (re: depth) of our environments continue to change. The graph below is taken from an AI Engineer Code Summit talk titled <a href="https://www.youtube.com/watch?v=-NFMsM2y0Vk">12 Rules for a Software Factory That Doesn't Ship Slop.</a> Notice how the Governance column wraps the entire stack. We have the tools "to do the grc thing", <b>the risk comes from agent workflows that push dependencies, features, or infrastructure we don't understand or don't know about.</b></p>
+
+  <img src="images/cicid-agent_orchestration.png" alt="landing page for trust.binance.us"><br><br>
+
+
+
+  <p>However a department is run (Standups, Agile Project Mangagement, etc.) the meetings become more about being a Human in the Loop (HITL) to ensure key infrastructure, strategies, standards are adhered to across the "factory stack".</p>
+
+
+
+</main>
 
 <footer>
-  <div style="display: flex; justify-content: space-between;">
-    <p style="margin: 0;">WW &middot; Nice.grc</p>
-    <p style="margin: 0;">!DH&lt;3</p>
-  </div>
+    <div style="display: flex; justify-content: space-between;">
+      <p style="margin: 0;">WW &middot; Nice.grc</p>
+      <p style="margin: 0;">!DH&lt;3</p>
+    </div>
 </footer>
 
 </body>
